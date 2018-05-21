@@ -3,36 +3,29 @@ layout: default
 ---
 
 <script type="text/javascript">
-const originalOnError = window.onerror;
+var originalOnError = window.onerror;
 function setupRunner(name, fn) {
-  const testRunner = document.querySelector('[data-run='+name+']');
-  const testOutput = document.querySelector('[data-output='+name+']');
+  var testRunner = document.querySelector('[data-run='+name+']');
+  var testOutput = document.querySelector('[data-output='+name+']');
   testRunner.addEventListener('click', function () {
-    console.log(fn);
     window.onerror = function(message, source, lineno, colno, error) {
-      const stack = error && error.stack;
-      const onerror = JSON.stringify({
+      var stack = error && error.stack;
+      var onerror = JSON.stringify({
         message: message,
         source: source,
         lineno: lineno,
         colno: colno
       }, null, 2);
-      const errObj = JSON.stringify({
+      var errObj = JSON.stringify({
         message: error && error.message,
         sourceURL: error && error.sourceURL,
         line: error && error.line,
         column: error && error.column
       }, null, 2);
-      testOutput.innerHTML = `
-=== Stack ===
-${stack}
-
-=== window.onerror args ===
-${onerror}
-
-=== window.onerror error arg ===
-${errObj}
-`
+      testOutput.innerHTML =
+        '=== Stack ===<br>' + stack +
+        '<br><br>=== window.onerror args ===<br>' + onerror +
+        '<br><br>=== window.onerror error arg ===<br>' + errObj;
       return true;
     };
     fn();
@@ -79,7 +72,7 @@ An inline script generates a new function from a string and executes it.
 
 ```javascript
 function newFn () {
-  const fn = new Function("throw new Error('newFn-error')");
+  var fn = new Function("throw new Error('newFn-error')");
   fn();
 }
 ```
@@ -90,7 +83,7 @@ function newFn () {
 
 <script type="text/javascript">
 function newFn () {
-  const fn = new Function("throw new Error('newFn-error')");
+  var fn = new Function("throw new Error('newFn-error')");
   fn();
 }
 setupRunner("newFn", newFn);
@@ -136,7 +129,7 @@ setupRunner("externalFn", externalFn);
 ```javascript
 // Defined externally
 function externalFn() {
-  throw new Error("externalFn-error");
+  throw new Error("external-cors-error");
 }
 
 // Defined inline
