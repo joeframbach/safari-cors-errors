@@ -59,8 +59,8 @@ setupRunner("inlineFn", inlineFn);
 | Browser | window.onerror<br>msg | window.onerror<br>url  | window.onerror<br>line:col | error<br>msg | error<br>url | error<br>line:col |
 |:------|:------|:------|:------|:------|:------|:------|
 | Chrome | Uncaught Error: inline-error | https://safari-cors-errors.framba.ch/ | 79:3 | inline-error |  |
-| Firefox | Error: inline-error | http://127.0.0.1:4000/ | 79:9 | inline-error |  |
-| Safari | Error: inline-error | http://127.0.0.1:4000/ | 79:34 | inline-error | http://127.0.0.1:4000/ | 79:18 |
+| Firefox | Error: inline-error | https://safari-cors-errors.framba.ch/ | 79:9 | inline-error |  |
+| Safari | Error: inline-error | https://safari-cors-errors.framba.ch/ | 79:34 | inline-error | https://safari-cors-errors.framba.ch/ | 79:18 |
 
 ## Generated function on same page
 
@@ -88,7 +88,7 @@ setupRunner("newFn", newFn);
 | Browser | window.onerror<br>msg | window.onerror<br>url | window.onerror<br>line:col | error<br>msg | error<br>url<br>line:col |
 |:------|:------|:------|:------|:------|:------|:------|
 | Chrome | Uncaught Error: newFn-error | https://safari-cors-errors.framba.ch/ | 3:1 | newFn-error |  |
-| Firefox | Error: newFn-error | http://127.0.0.1:4000/ line 135 > Function | 3:7 | newFn-error |  |
+| Firefox | Error: newFn-error | https://safari-cors-errors.framba.ch/ line 143 > Function | 3:7 | newFn-error |  |
 | Safari | Error: newFn-error |  | 2:16 | newFn-error | | 2:16 |
 
 ## Calling an external function
@@ -113,8 +113,8 @@ setupRunner("externalFn", externalFn);
 
 | Browser | window.onerror<br>msg | window.onerror<br>url | window.onerror<br>line:col | error<br>msg | error<br>url<br>line:col |
 |:------|:------|:------|:------|:------|:------|:------|
-| Chrome | Uncaught Error: external-cors-error | http://localhost:5000/external-fn.js | 2:3 | external-cors-error |  |
-| Firefox | Error: external-cors-error | http://localhost:5000/external-fn.js | 2:9 | external-cors-error |  |
+| Chrome | Uncaught Error: external-cors-error | https://safari-cors-external.framba.ch/external-fn.js | 2:9 | external-cors-error |  |
+| Firefox | Error: external-cors-error | https://safari-cors-external.framba.ch/external-fn.js | 2:9 | external-cors-error |  |
 | Safari | Script error. |  |  |  |  |  |
 
 ## Calling and rethrowing an external function
@@ -155,6 +155,6 @@ setupRunner("rethrowExternalFn", rethrowExternalFn);
 
 | Browser | window.onerror<br>msg | window.onerror<br>url | window.onerror<br>line:col | error<br>msg | error<br>url<br>line:col |
 |:------|:------|:------|:------|:------|:------|:------|
-| Chrome | Uncaught Error: external-cors-error | http://localhost:4000/ | 283:5 | external-cors-error |  |
-| Firefox | Error: external-cors-error | http://localhost:5000/external-fn.js | 2:9 | external-cors-error |  |
-| Safari | Error: external-cors-error | http://127.0.0.1:4000/ | 283:12 | external-cors-error | http://localhost:5000/external-fn.js | 2:18 |
+| Chrome | Uncaught Error: external-cors-error | https://safari-cors-errors.framba.ch/ | 283:5 | external-cors-error |  |
+| Firefox | Error: external-cors-error | https://safari-cors-external.framba.ch/external-fn.js | 2:9 | external-cors-error |  |
+| Safari | Error: external-cors-error | https://safari-cors-errors.framba.ch/ | 283:12 | external-cors-error | https://safari-cors-external.framba.ch/external-fn.js | 2:18 |
