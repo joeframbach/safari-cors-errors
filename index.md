@@ -58,7 +58,7 @@ setupRunner("inlineFn", inlineFn);
 
 | Browser | window.onerror<br>msg | window.onerror<br>url  | window.onerror<br>line:col | error<br>msg | error<br>url | error<br>line:col |
 |:------|:------|:------|:------|:------|:------|:------|
-| Chrome | Uncaught Error: inline-error | http://127.0.0.1:4000/ | 79:3 | inline-error |  |
+| Chrome | Uncaught Error: inline-error | https://safari-cors-errors.framba.ch/ | 79:3 | inline-error |  |
 | Firefox | Error: inline-error | http://127.0.0.1:4000/ | 79:9 | inline-error |  |
 | Safari | Error: inline-error | http://127.0.0.1:4000/ | 79:34 | inline-error | http://127.0.0.1:4000/ | 79:18 |
 
@@ -87,7 +87,7 @@ setupRunner("newFn", newFn);
 
 | Browser | window.onerror<br>msg | window.onerror<br>url | window.onerror<br>line:col | error<br>msg | error<br>url<br>line:col |
 |:------|:------|:------|:------|:------|:------|:------|
-| Chrome | Uncaught Error: newFn-error | http://127.0.0.1:4000/ | 3:1 | newFn-error |  |
+| Chrome | Uncaught Error: newFn-error | https://safari-cors-errors.framba.ch/ | 3:1 | newFn-error |  |
 | Firefox | Error: newFn-error | http://127.0.0.1:4000/ line 135 > Function | 3:7 | newFn-error |  |
 | Safari | Error: newFn-error |  | 2:16 | newFn-error | | 2:16 |
 
