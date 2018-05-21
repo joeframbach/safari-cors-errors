@@ -10,18 +10,29 @@ function setupRunner(name, fn) {
   testRunner.addEventListener('click', function () {
     console.log(fn);
     window.onerror = function(message, source, lineno, colno, error) {
-      testOutput.innerHTML = JSON.stringify({
+      const stack = error && error.stack;
+      const onerror = JSON.stringify({
         message: message,
         source: source,
         lineno: lineno,
-        colno: colno,
-        error: {
-          message: error && error.message,
-          sourceURL: error && error.sourceURL,
-          line: error && error.line,
-          column: error && error.column
-        }
+        colno: colno
       }, null, 2);
+      const errObj = JSON.stringify({
+        message: error && error.message,
+        sourceURL: error && error.sourceURL,
+        line: error && error.line,
+        column: error && error.column
+      }, null, 2);
+      testOutput.innerHTML = `
+=== Stack ===
+${stack}
+
+=== window.onerror args ===
+${onerror}
+
+=== window.onerror error arg ===
+${errObj}
+`
       return true;
     };
     fn();
